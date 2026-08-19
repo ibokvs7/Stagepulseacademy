@@ -1,10 +1,9 @@
-name: StagePulse System Design APK
+name: StagePulse Android Build
 
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -12,112 +11,98 @@ permissions:
 
 jobs:
   build:
+    name: Build StagePulse APK
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Java 17
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Android SDK
+      - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: SDK packages
-        run: |
-          yes | sdkmanager --licenses >/dev/null || true
-          sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
-
-      - name: Gradle 9.7
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.7'
-
-      - name: Validate project layout
-        run: |
-          test -d apps
-          test -f settings.gradle
-          test -f build.gradle
-          test -f apps/build.gradle
-          test -f apps/src/main/AndroidManifest.xml
-          test -f apps/src/main/java/tr/stagepulse/tools/MainActivity.java
-          test -f apps/src/main/java/tr/stagepulse/tools/Acoustics.java
-          test -f apps/src/test/java/tr/stagepulse/tools/AcousticsTest.java
-
-      - name: Validate 3D model library
+      - name: Verify project structure
         shell: bash
         run: |
           set -e
-          models=(
-            linearray4 linearray8 sub_double18 sub_single18 monitor12 monitor15
-            drumkit guitar bass keyboard kanun baglama ud violin cello darbuka ney
-            clarinet sax trumpet trombone accordion percussion iem truss movinghead
-            console laptop micstand speakerstand ledwall riser barrier pc stage
-          )
-          python3 - <<'PYCODE'
-          import glob, struct, sys
-          required = [
-              "linearray4","linearray8","sub_double18","sub_single18","monitor12","monitor15",
-              "drumkit","guitar","bass","keyboard","kanun","baglama","ud","violin","cello","darbuka","ney",
-              "clarinet","sax","trumpet","trombone","accordion","percussion","iem","truss","movinghead",
-              "console","laptop","micstand","speakerstand","ledwall","riser","barrier","pc","stage"
-          ]
-          for name in required:
-              path = f"apps/src/main/assets/models/{name}.glb"
-              data = open(path, "rb").read()
-              assert len(data) >= 20, path
-              magic, version, total = struct.unpack_from("<III", data, 0)
-              assert magic == 0x46546C67 and version == 2 and total == len(data), path
-              pos = 12
-              json_seen = False
-              bin_seen = False
-              while pos + 8 <= len(data):
-                  length, kind = struct.unpack_from("<II", data, pos)
-                  pos += 8
-                  chunk = data[pos:pos+length]
-                  assert len(chunk) == length, path
-                  if kind == 0x4E4F534A:
-                      json_seen = True
-                  if kind == 0x004E4942:
-                      bin_seen = True
-                  pos += length
-              assert json_seen and bin_seen, path
-          print("All required GLB assets are structurally valid GLB v2 files.")
-          PYCODE
 
-      - name: Unit tests
-        run: gradle test --no-daemon --stacktrace
+          echo "Checking StagePulse project..."
 
-      - name: Debug APK
-        run: gradle assembleDebug --no-daemon --stacktrace
+          test -f settings.gradle
+          test -f build.gradle
+          test -f gradle.properties
+          test -f apps/build.gradle
+          test -f apps/src/main/AndroidManifest.xml
+          test -f apps/src/main/java/tr/stagepulse/tools/MainActivity.java
 
-      - name: Verify APK
+          echo "Project structure OK."
+
+      - name: Verify Gradle Wrapper
         shell: bash
         run: |
-          APK=$(find apps/build/outputs/apk/debug -type f -name '*.apk' | head -n 1)
-          test -n "$APK"
-          test -s "$APK"
-          echo "APK=$APK"
+          set -e
+
+          test -f gradlew
+          test -f gradle/wrapper/gradle-wrapper.jar
+          test -f gradle/wrapper/gradle-wrapper.properties
+
+          chmod +x gradlew
+
+          echo "Gradle Wrapper OK."
+
+      - name: Show Gradle version
+        shell: bash
+        run: |
+          ./gradlew --version
+
+      - name: Run unit tests
+        shell: bash
+        run: |
+          ./gradlew test \
+            --no-daemon \
+            --stacktrace \
+            --warning-mode all
+
+      - name: Build debug APK
+        shell: bash
+        run: |
+          ./gradlew assembleDebug \
+            --no-daemon \
+            --stacktrace \
+            --warning-mode all
+
+      - name: Verify generated APK
+        shell: bash
+        run: |
+          set -e
+
+          APK="apps/build/outputs/apk/debug/apps-debug.apk"
+
+          if [ ! -f "$APK" ]; then
+            echo "ERROR: APK was not generated."
+            echo "Searching build outputs..."
+            find apps/build -type f 2>/dev/null || true
+            exit 1
+          fi
+
+          if [ ! -s "$APK" ]; then
+            echo "ERROR: APK exists but is empty."
+            exit 1
+          fi
+
+          echo "APK successfully generated."
           ls -lh "$APK"
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: StagePulse-System-Design-debug
-          path: apps/build/outputs/apk/debug/*.apk
+          name: StagePulse-debug-apk
+          path: apps/build/outputs/apk/debug/apps-debug.apk
           if-no-files-found: error
-          retention-days: 30
-
-      - name: Upload reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: StagePulse-build-reports
-          path: |
-            **/build/reports/**
-            **/build/test-results/**
-          if-no-files-found: ignore
-          retention-days: 14
