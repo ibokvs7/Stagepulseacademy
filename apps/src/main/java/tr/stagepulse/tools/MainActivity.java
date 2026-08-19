@@ -43,6 +43,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -217,6 +218,8 @@ public class MainActivity extends Activity {
         pendingDocument = null;
     }
 
+    private static byte[] readAll(InputStream in) throws IOException { ByteArrayOutputStream out=new ByteArrayOutputStream(); byte[] b=new byte[8192]; int n; while((n=in.read(b))!=-1) out.write(b,0,n); return out.toByteArray(); }
+
     static String fmt(float v) { return String.format(Locale.US, "%.2f", v); }
     static float number(EditText e, float fallback) { try { return Float.parseFloat(e.getText().toString().replace(',', '.')); } catch (Exception ex) { return fallback; } }
     private TextView text(String s, int size, int color) { TextView t = new TextView(this); t.setText(s); t.setTextSize(size); t.setTextColor(color); t.setGravity(Gravity.CENTER_VERTICAL); t.setPadding(8,0,8,0); return t; }
@@ -300,11 +303,11 @@ public class MainActivity extends Activity {
         }
         private void renderFrame(long t){if(swapChain!=null&&renderer.beginFrame(swapChain,t)){resources.asyncUpdateLoad();loader.gc();renderer.render(viewRef);renderer.endFrame();}choreographer.postFrameCallback(frameCallback);}
         private void updateCamera(){double ya=Math.toRadians(yaw),pi=Math.toRadians(pitch);float ex=(float)(Math.sin(ya)*Math.cos(pi)*distance),ey=(float)(Math.sin(pi)*distance+4),ez=(float)(Math.cos(ya)*Math.cos(pi)*distance);camera.lookAt(ex,ey,ez,0,0,0,0,1,0);}
-        void applyStageModel(){if(stageAsset==null)return;TransformManager.Instance inst=engine.getTransformManager().getInstance(stageAsset.getRoot());float[] m=new float[16];android.opengl.Matrix.setIdentityM(m,0);android.opengl.Matrix.translateM(m,0,0,-.5f,0);android.opengl.Matrix.scaleM(m,0,stageW,stageH,stageD);engine.getTransformManager().setTransform(inst,m);}
+        void applyStageModel(){if(stageAsset==null)return;int inst=engine.getTransformManager().getInstance(stageAsset.getRoot());float[] m=new float[16];android.opengl.Matrix.setIdentityM(m,0);android.opengl.Matrix.translateM(m,0,0,-.5f,0);android.opengl.Matrix.scaleM(m,0,stageW,stageH,stageD);engine.getTransformManager().setTransform(inst,m);}
         void addEquipment(String type){saveUndo();Equipment e=new Equipment(type);int i=objects.size();e.x=(i%6-2.5f)*1.5f;e.z=(i/6)*1.5f-2f;e.asset=loadAsset(e.modelFile);if(e.asset==null){Toast.makeText(MainActivity.this,"3D model yok: "+e.modelFile,Toast.LENGTH_SHORT).show();return;}filamentScene.addEntities(e.asset.getEntities());objects.add(e);selected=e;applyTransform(e);syncFields(e);invalidate();}
         void addListener(){saveUndo();Equipment e=new Equipment("LISTENER");e.width=.35f;e.height=1.7f;e.depth=.35f;e.x=0;e.z=stageD/2-1;e.modelFile="models/pc.glb";e.asset=loadAsset(e.modelFile);if(e.asset==null)return;filamentScene.addEntities(e.asset.getEntities());objects.add(e);selected=e;applyTransform(e);syncFields(e);invalidate();}
-        private FilamentAsset loadAsset(String path){try{InputStream in=getAssets().open(path);byte[] bytes=readAll(in);in.close();FilamentAsset a=loader.createAsset(bytes,bytes.length);if(a==null)return null;resources.loadResources(a);a.releaseSourceData();return a;}catch(Exception e){return null;}}
-        void applyTransform(Equipment e){if(e==null||e.asset==null)return;TransformManager tm=engine.getTransformManager();TransformManager.Instance inst=tm.getInstance(e.asset.getRoot());float[] m=new float[16];android.opengl.Matrix.setIdentityM(m,0);android.opengl.Matrix.translateM(m,0,e.x,e.y,e.z);android.opengl.Matrix.rotateM(m,0,e.rotationX,1,0,0);android.opengl.Matrix.rotateM(m,0,e.rotationY,0,1,0);android.opengl.Matrix.rotateM(m,0,e.rotationZ,0,0,1);android.opengl.Matrix.scaleM(m,0,e.width,e.height,e.depth);tm.setTransform(inst,m);}
+        private FilamentAsset loadAsset(String path){try{InputStream in=getAssets().open(path);byte[] bytes=readAll(in);in.close();FilamentAsset a=loader.createAsset(ByteBuffer.wrap(bytes));if(a==null)return null;resources.loadResources(a);a.releaseSourceData();return a;}catch(Exception e){return null;}}
+        void applyTransform(Equipment e){if(e==null||e.asset==null)return;TransformManager tm=engine.getTransformManager();int inst=tm.getInstance(e.asset.getRoot());float[] m=new float[16];android.opengl.Matrix.setIdentityM(m,0);android.opengl.Matrix.translateM(m,0,e.x,e.y,e.z);android.opengl.Matrix.rotateM(m,0,e.rotationX,1,0,0);android.opengl.Matrix.rotateM(m,0,e.rotationY,0,1,0);android.opengl.Matrix.rotateM(m,0,e.rotationZ,0,0,1);android.opengl.Matrix.scaleM(m,0,e.width,e.height,e.depth);tm.setTransform(inst,m);}
         Equipment selected(){return selected;}
         void rotateSelected(float d){if(selected==null)return;saveUndo();selected.rotationY+=d;applyTransform(selected);syncFields(selected);invalidate();}
         void selectNext(){if(objects.isEmpty())return;int i=objects.indexOf(selected);selected=objects.get((i+1+objects.size())%objects.size());syncFields(selected);invalidate();}
