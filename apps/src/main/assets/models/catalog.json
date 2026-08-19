@@ -1,0 +1,14 @@
+{
+  "engine": "StagePulse Procedural Equipment Library",
+  "units": "meters",
+  "models": [
+    "line_array_4", "line_array_8", "sub_double_18", "sub_single_18", "sub_15",
+    "monitor_12", "monitor_15", "sidefill", "frontfill", "delay",
+    "drum_kit", "guitar", "bass", "keys", "piano", "kanun", "baglama", "ud",
+    "violin", "viola", "cello", "darbuka", "ney", "clarinet", "saxophone",
+    "trumpet", "trombone", "accordion", "percussion", "vocal_mic", "mic_stand",
+    "di_box", "iem", "foh_console", "monitor_console", "laptop", "truss",
+    "moving_head", "par", "led_bar", "led_wall", "riser", "barrier", "generator",
+    "speaker_stand", "delay_tower"
+  ]
+}

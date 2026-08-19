@@ -1,0 +1,350 @@
+{
+  "catalogVersion": "1.0",
+  "source": "StagePulse manufacturer-neutral engineering reference catalog",
+  "note": "Default acoustic values are editable design references, not a substitute for the exact manufacturer's datasheet for a selected cabinet.",
+  "items": [
+    {
+      "id": "linearray",
+      "name": "Line Array",
+      "category": "PA",
+      "width": 1.0,
+      "height": 0.35,
+      "depth": 0.65,
+      "sensitivity": 100,
+      "power": 1600,
+      "maxSPL": 142,
+      "coverage": 90,
+      "model": "StagePulse LA-REF"
+    },
+    {
+      "id": "sub_double18",
+      "name": "Subwoofer Double 18\"",
+      "category": "PA",
+      "width": 1.2,
+      "height": 1.0,
+      "depth": 1.0,
+      "sensitivity": 99,
+      "power": 2400,
+      "maxSPL": 139,
+      "coverage": 120,
+      "model": "StagePulse SUB-D18 REF"
+    },
+    {
+      "id": "sub_single18",
+      "name": "Subwoofer Single 18\"",
+      "category": "PA",
+      "width": 1.0,
+      "height": 1.0,
+      "depth": 0.85,
+      "sensitivity": 98,
+      "power": 1200,
+      "maxSPL": 136,
+      "coverage": 120,
+      "model": "StagePulse SUB-S18 REF"
+    },
+    {
+      "id": "monitor12",
+      "name": "Monitor 12\"",
+      "category": "MONITOR",
+      "width": 0.75,
+      "height": 0.35,
+      "depth": 0.9,
+      "sensitivity": 96,
+      "power": 700,
+      "maxSPL": 130,
+      "coverage": 80,
+      "model": "StagePulse M12 REF"
+    },
+    {
+      "id": "monitor15",
+      "name": "Monitor 15\"",
+      "category": "MONITOR",
+      "width": 0.9,
+      "height": 0.42,
+      "depth": 1.05,
+      "sensitivity": 97,
+      "power": 900,
+      "maxSPL": 132,
+      "coverage": 80,
+      "model": "StagePulse M15 REF"
+    },
+    {
+      "id": "drumkit",
+      "name": "Drum Kit",
+      "category": "INSTRUMENT",
+      "width": 2.1,
+      "height": 1.5,
+      "depth": 1.8,
+      "model": "StagePulse DRUM REF"
+    },
+    {
+      "id": "guitar",
+      "name": "Electric/Acoustic Guitar",
+      "category": "INSTRUMENT",
+      "width": 0.45,
+      "height": 1.2,
+      "depth": 0.35,
+      "model": "StagePulse GUITAR REF"
+    },
+    {
+      "id": "bass",
+      "name": "Bass Guitar",
+      "category": "INSTRUMENT",
+      "width": 0.45,
+      "height": 1.3,
+      "depth": 0.35,
+      "model": "StagePulse BASS REF"
+    },
+    {
+      "id": "keyboard",
+      "name": "Keyboard",
+      "category": "INSTRUMENT",
+      "width": 1.5,
+      "height": 0.45,
+      "depth": 0.5,
+      "model": "StagePulse KEYS REF"
+    },
+    {
+      "id": "kanun",
+      "name": "Kanun",
+      "category": "INSTRUMENT",
+      "width": 1.1,
+      "height": 0.28,
+      "depth": 0.55,
+      "model": "StagePulse KANUN REF"
+    },
+    {
+      "id": "violin",
+      "name": "Keman / Violin",
+      "category": "INSTRUMENT",
+      "width": 0.25,
+      "height": 0.9,
+      "depth": 0.2,
+      "model": "StagePulse VIOLIN REF"
+    },
+    {
+      "id": "truss",
+      "name": "Box Truss",
+      "category": "RIGGING",
+      "width": 4.0,
+      "height": 0.12,
+      "depth": 0.12,
+      "model": "StagePulse TRUSS REF"
+    },
+    {
+      "id": "movinghead",
+      "name": "Moving Head",
+      "category": "LIGHTING",
+      "width": 0.45,
+      "height": 0.6,
+      "depth": 0.35,
+      "model": "StagePulse MH REF"
+    },
+    {
+      "id": "console",
+      "name": "FOH Console",
+      "category": "CONTROL",
+      "width": 1.8,
+      "height": 0.45,
+      "depth": 0.85,
+      "model": "StagePulse CONSOLE REF"
+    },
+    {
+      "id": "laptop",
+      "name": "Laptop",
+      "category": "CONTROL",
+      "width": 0.55,
+      "height": 0.35,
+      "depth": 0.4,
+      "model": "StagePulse LAPTOP REF"
+    },
+    {
+      "id": "micstand",
+      "name": "Microphone Stand",
+      "category": "MIC",
+      "width": 0.2,
+      "height": 1.7,
+      "depth": 0.2,
+      "model": "StagePulse MIC REF"
+    },
+    {
+      "id": "speakerstand",
+      "name": "Speaker Stand",
+      "category": "RIGGING",
+      "width": 0.35,
+      "height": 2.3,
+      "depth": 0.35,
+      "model": "StagePulse STAND REF"
+    },
+    {
+      "id": "ledwall",
+      "name": "LED Wall",
+      "category": "VIDEO",
+      "width": 5.0,
+      "height": 3.0,
+      "depth": 0.2,
+      "model": "StagePulse LED REF"
+    },
+    {
+      "id": "riser",
+      "name": "Stage Riser",
+      "category": "STAGE",
+      "width": 3.0,
+      "height": 0.5,
+      "depth": 2.0,
+      "model": "StagePulse RISER REF"
+    },
+    {
+      "id": "barrier",
+      "name": "Audience Barrier",
+      "category": "SAFETY",
+      "width": 2.0,
+      "height": 1.1,
+      "depth": 0.12,
+      "model": "StagePulse BARRIER REF"
+    },
+    {
+      "id": "pc",
+      "name": "PC / FOH Computer",
+      "category": "CONTROL",
+      "width": 0.5,
+      "height": 0.35,
+      "depth": 0.3,
+      "model": "StagePulse PC REF"
+    },
+    {
+      "id": "linearray4",
+      "name": "Line Array 4 Modules",
+      "category": "PA",
+      "width": 1,
+      "height": 0.35,
+      "depth": 0.65,
+      "model": "StagePulse LINEARRAY4 REF",
+      "sensitivity": 100,
+      "power": 1600,
+      "maxSPL": 142,
+      "coverage": 90
+    },
+    {
+      "id": "linearray8",
+      "name": "Line Array 8 Modules",
+      "category": "PA",
+      "width": 1,
+      "height": 0.35,
+      "depth": 0.65,
+      "model": "StagePulse LINEARRAY8 REF",
+      "sensitivity": 100,
+      "power": 1600,
+      "maxSPL": 142,
+      "coverage": 90
+    },
+    {
+      "id": "baglama",
+      "name": "Bağlama",
+      "category": "INSTRUMENT",
+      "width": 0.45,
+      "height": 1.1,
+      "depth": 0.32,
+      "model": "StagePulse BAGLAMA REF"
+    },
+    {
+      "id": "ud",
+      "name": "Ud",
+      "category": "INSTRUMENT",
+      "width": 0.45,
+      "height": 1.0,
+      "depth": 0.32,
+      "model": "StagePulse UD REF"
+    },
+    {
+      "id": "cello",
+      "name": "Çello",
+      "category": "INSTRUMENT",
+      "width": 0.5,
+      "height": 1.25,
+      "depth": 0.35,
+      "model": "StagePulse CELLO REF"
+    },
+    {
+      "id": "darbuka",
+      "name": "Darbuka",
+      "category": "INSTRUMENT",
+      "width": 0.6,
+      "height": 0.7,
+      "depth": 0.6,
+      "model": "StagePulse DARBUKA REF"
+    },
+    {
+      "id": "ney",
+      "name": "Ney",
+      "category": "INSTRUMENT",
+      "width": 0.15,
+      "height": 1.1,
+      "depth": 0.15,
+      "model": "StagePulse NEY REF"
+    },
+    {
+      "id": "clarinet",
+      "name": "Klarnet",
+      "category": "INSTRUMENT",
+      "width": 0.15,
+      "height": 1.1,
+      "depth": 0.15,
+      "model": "StagePulse CLARINET REF"
+    },
+    {
+      "id": "sax",
+      "name": "Saksafon",
+      "category": "INSTRUMENT",
+      "width": 0.5,
+      "height": 1.0,
+      "depth": 0.35,
+      "model": "StagePulse SAX REF"
+    },
+    {
+      "id": "trumpet",
+      "name": "Trompet",
+      "category": "INSTRUMENT",
+      "width": 0.5,
+      "height": 1.0,
+      "depth": 0.3,
+      "model": "StagePulse TRUMPET REF"
+    },
+    {
+      "id": "trombone",
+      "name": "Trombon",
+      "category": "INSTRUMENT",
+      "width": 0.5,
+      "height": 1.0,
+      "depth": 0.3,
+      "model": "StagePulse TROMBONE REF"
+    },
+    {
+      "id": "accordion",
+      "name": "Akordeon",
+      "category": "INSTRUMENT",
+      "width": 0.6,
+      "height": 0.8,
+      "depth": 0.3,
+      "model": "StagePulse ACCORDION REF"
+    },
+    {
+      "id": "percussion",
+      "name": "Perküsyon",
+      "category": "INSTRUMENT",
+      "width": 1,
+      "height": 0.8,
+      "depth": 0.7,
+      "model": "StagePulse PERCUSSION REF"
+    },
+    {
+      "id": "iem",
+      "name": "IEM Receiver",
+      "category": "MONITOR",
+      "width": 0.3,
+      "height": 0.12,
+      "depth": 0.18,
+      "model": "StagePulse IEM REF"
+    }
+  ]
+}

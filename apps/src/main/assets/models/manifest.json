@@ -1,0 +1,185 @@
+{
+  "schema": "stagepulse.glb-manifest.v1",
+  "models": [
+    {
+      "file": "models/accordion.glb",
+      "bytes": 2108,
+      "sha256": "3699a0b2d6ae7255e1e835b83fd77e7a1359cc3d30088a456d8c3da09ea9d8c2"
+    },
+    {
+      "file": "models/baglama.glb",
+      "bytes": 11448,
+      "sha256": "3c7deb39072ed38f3609b147a7232e1cc45065ab2e64732dd6d5b0c3611ac9d0"
+    },
+    {
+      "file": "models/barrier.glb",
+      "bytes": 1584,
+      "sha256": "b49eda1f6f1735389668335dac455b97ef485322613fc90bcdda257165307047"
+    },
+    {
+      "file": "models/bass.glb",
+      "bytes": 9268,
+      "sha256": "1d81f464dcddf3f01208ae26a8c9c31b7b529b55c0512504dfb7af9271e7c290"
+    },
+    {
+      "file": "models/cello.glb",
+      "bytes": 6452,
+      "sha256": "42857d30c642cc6303bbd864948feb3f1f7620ddb50c743097a24a4d4853e037"
+    },
+    {
+      "file": "models/clarinet.glb",
+      "bytes": 5136,
+      "sha256": "5e3bc0a1da49eeecbc2f0af0a24ca6d5de8b8a0b6e1cc1158173fb3fe4334725"
+    },
+    {
+      "file": "models/console.glb",
+      "bytes": 2252,
+      "sha256": "0af28fac4f3e155a92fb67e8293e7e0df9a6f67f35da22e9a34af33bd12b6d62"
+    },
+    {
+      "file": "models/darbuka.glb",
+      "bytes": 5136,
+      "sha256": "89d3cf4d5bcb7d01d5bf6756468458abbdbfff07b80c51509bb681833ade0edf"
+    },
+    {
+      "file": "models/drumkit.glb",
+      "bytes": 21892,
+      "sha256": "0f8f1301c4a8952afd0d45f4dab3de56746b043a91249a6a72cf16067ba18427"
+    },
+    {
+      "file": "models/guitar.glb",
+      "bytes": 16968,
+      "sha256": "09cc138c9654b707c8763695b72c90e14d7c1141e7680f63ca78d19bff0b2f94"
+    },
+    {
+      "file": "models/iem.glb",
+      "bytes": 2100,
+      "sha256": "35a4f7a51c6148cfe4822e0f225da72568374c88553b67659e7394923fa2224e"
+    },
+    {
+      "file": "models/kanun.glb",
+      "bytes": 1584,
+      "sha256": "40bf82efa9731c9c661c0fbb831a6f0bd2645aff30082dc889817e1d55bda088"
+    },
+    {
+      "file": "models/keyboard.glb",
+      "bytes": 2240,
+      "sha256": "0e5c419f092486c1a57adf9a8d05bf9f96d8a54392c0eb93ed850b177c248eac"
+    },
+    {
+      "file": "models/laptop.glb",
+      "bytes": 2236,
+      "sha256": "b28772810fa4a9906f2df19bcb88739b11b2c704aebee1011a6773f574c7f0fb"
+    },
+    {
+      "file": "models/ledwall.glb",
+      "bytes": 1580,
+      "sha256": "e0d5b08e38eb982846a6fda485e0d2d82baff959ddc7b2d401b2d7e669332a53"
+    },
+    {
+      "file": "models/linearray.glb",
+      "bytes": 4840,
+      "sha256": "41c8b4ab49be0f0ebf103265276cad8df3d53ce6e2ee300a5bcfe903ea2a4028"
+    },
+    {
+      "file": "models/linearray4.glb",
+      "bytes": 3408,
+      "sha256": "488f5d4862981d69a47817123ac87f34f7278a4e3efbaf8a5862af4225f57269"
+    },
+    {
+      "file": "models/linearray8.glb",
+      "bytes": 6004,
+      "sha256": "eb861a0fdc530fc65add82b294de7a6e8ac32a58315e6872e72168fb96f17d94"
+    },
+    {
+      "file": "models/micstand.glb",
+      "bytes": 6828,
+      "sha256": "8eaeba3d71e0e7522bd8122e77936c404856b63204c2e4b7fb28867159edea1a"
+    },
+    {
+      "file": "models/monitor12.glb",
+      "bytes": 1588,
+      "sha256": "fd51a08d506c46e8c81cdbd0577f5a25f9d5d9230f3b828dd3e6d1319b711d39"
+    },
+    {
+      "file": "models/monitor15.glb",
+      "bytes": 1588,
+      "sha256": "91180face48b8b9895aac2f38aa655390d1ccc4a19dcbe29a956c92d03397005"
+    },
+    {
+      "file": "models/movinghead.glb",
+      "bytes": 9284,
+      "sha256": "a75581fbb86201c953b2c83b88323765d36ed7b6a11ecf45fa18baaaf82dc85f"
+    },
+    {
+      "file": "models/ney.glb",
+      "bytes": 2968,
+      "sha256": "6e50f5a16e51326844478dd9ee4be8bb818b2755c76673b35996ee2fd7d95c7d"
+    },
+    {
+      "file": "models/pc.glb",
+      "bytes": 2228,
+      "sha256": "f4385b1bbe5a54de2bdd903ecae0fde2120fe1b6951bc8993ab4848eed46e37e"
+    },
+    {
+      "file": "models/percussion.glb",
+      "bytes": 5788,
+      "sha256": "83443d613c50f759c5f139df0985441341ba2e14e11d494bc425a56bd6cec651"
+    },
+    {
+      "file": "models/riser.glb",
+      "bytes": 1576,
+      "sha256": "68990f5036ae0a1f9c23ca9abd8161451058a2a61e44de734661cd19f9462eb6"
+    },
+    {
+      "file": "models/sax.glb",
+      "bytes": 8612,
+      "sha256": "7a1dc465723482ba663cca89c955f754650277c480620579511a29adecfe3b08"
+    },
+    {
+      "file": "models/speakerstand.glb",
+      "bytes": 6836,
+      "sha256": "319e74c0209d2acb8daab02298445a83049abe02fe9c10c8f9850af85c60ba39"
+    },
+    {
+      "file": "models/stage.glb",
+      "bytes": 1452,
+      "sha256": "f3a99dd0a6f3526eb81fdee2984b7e7517a3439434bbaca69abd444e3a620b41"
+    },
+    {
+      "file": "models/sub_double18.glb",
+      "bytes": 16980,
+      "sha256": "0be169b5c7cf4f63b4be1af5ff29d0efca0507e197c6f27dd7d738a97aaff45e"
+    },
+    {
+      "file": "models/sub_single18.glb",
+      "bytes": 9284,
+      "sha256": "ec96c91a89d83b10b0b533a50264faad0805dc339aaa1b6bd918cf33a4971e23"
+    },
+    {
+      "file": "models/trombone.glb",
+      "bytes": 3624,
+      "sha256": "1368a67f8b1fb1e391f0dd96b46ec0c4394e644a7ca7fb8c3e6570aaec8c6a4c"
+    },
+    {
+      "file": "models/trumpet.glb",
+      "bytes": 5136,
+      "sha256": "81b3a3c2fcffda3ec985521c18702ecc59e3fb42382764bfa5b1eb03727ec5d2"
+    },
+    {
+      "file": "models/truss.glb",
+      "bytes": 17284,
+      "sha256": "2dcebf7bb0b7bad6dae713d6fea87b7b788db51eab4e087a946be3a382f8a184"
+    },
+    {
+      "file": "models/ud.glb",
+      "bytes": 6452,
+      "sha256": "2476ea3b471a26be385d6fdac4c8621e0456c38bdab6a530d551833d0f2ad579"
+    },
+    {
+      "file": "models/violin.glb",
+      "bytes": 16956,
+      "sha256": "0e88a619421327406bc9315f2d3d7b8257f368cd2775ebbd831130e397404ca6"
+    }
+  ]
+}

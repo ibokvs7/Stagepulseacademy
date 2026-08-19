@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'tr.stagepulse.tools'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'tr.stagepulse.tools'
+        minSdk 26
+        targetSdk 36
+        versionCode 50
+        versionName '5.0.0'
+    }
+
+    buildTypes {
+        debug { minifyEnabled false }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.filament:filament-android:1.75.0'
+    implementation 'com.google.android.filament:gltfio-android:1.75.0'
+    implementation 'com.google.android.filament:filament-utils-android:1.75.0'
+    testImplementation 'junit:junit:4.13.2'
+}
