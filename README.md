@@ -1,26 +1,27 @@
 # StagePulse System Design
 
-Tablet-first StagePulse system-design and rider workspace.
+Tablet-first live-event system design and rider tool for StagePulse.
 
-## Included
+## Current product capabilities
 
-- Filament-based real-time 3D renderer.
-- GLB/glTF equipment asset library under `apps/src/main/assets/models`.
-- SVG stage-plot symbols under `apps/src/main/assets/svg`.
-- Equipment placement, move mode, camera orbit/zoom, XYZ and rotation controls.
-- Editable stage width/depth/height.
-- Equipment technical metadata and acoustic reference parameters.
-- SPL / distance / directivity calculation engine with unit tests.
-- Project JSON export.
-- Rider PDF export with stage plot and equipment coordinates.
-- GitHub Actions validation, unit tests, debug APK build, APK existence/size check and artifact upload.
+- Filament-based 3D GLB/GLTF scene rendering.
+- Stage dimensions entered in metres.
+- Equipment library for PA, monitors, instruments, microphones, IEM, rigging, lighting, video, control and power.
+- GLB assets bundled under `apps/src/main/assets/models/`.
+- Touch selection and MOVE mode.
+- XYZ positioning and RX/RY/RZ rotation.
+- Camera orbit and two-finger zoom.
+- Undo/redo project snapshots.
+- Project JSON save/open.
+- Stage plot / rider PDF export.
+- SPL estimate and stage-area heatmap reporting.
+- Unit tests for the acoustic calculation layer.
+- GitHub Actions validation, debug APK, release APK and release AAB generation.
+
+## Acoustic safety
+
+The acoustic engine is a design-estimate model. Sensitivity, power, maximum SPL and coverage values are reference metadata unless a specific manufacturer/cabinet dataset is entered. Exact deployment must be checked against the selected manufacturer's datasheet, controller presets, DSP limits, environmental conditions and field measurements.
 
 ## Build
 
-GitHub Actions installs JDK 17, Android SDK 36 and Gradle 9.7, runs tests, builds the debug APK and refuses to publish an artifact if no APK is produced.
-
-## Important acoustic note
-
-The acoustic engine is a deterministic planning model, not a substitute for manufacturer prediction software or an on-site measurement. Cabinet sensitivity, maximum SPL, power and coverage values must be checked against the exact deployed product datasheet before a professional deployment.
-
-The included 3D assets are StagePulse-created generic reference models and are not manufacturer CAD models. They are intended to provide a consistent visual system-design representation without copying proprietary manufacturer geometry.
+GitHub Actions uses JDK 17, Android API 36 and Gradle 9.5.0. The workflow validates the project, validates bundled GLB files, runs tests and produces debug/release APK plus release AAB artifacts.
